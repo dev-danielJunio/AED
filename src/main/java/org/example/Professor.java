@@ -2,7 +2,7 @@ package org.example;
 
 public class Professor extends Pessoa {
 
-    public Professor(String nome, int CPF, int idade, boolean criveis, char sexo, int matricula) {
+    public Professor(String nome, long CPF, int idade, boolean criveis, char sexo, int matricula) {
         super(nome, CPF, idade, criveis, sexo, matricula);
     }
 

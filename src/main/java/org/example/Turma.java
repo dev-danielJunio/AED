@@ -79,4 +79,16 @@ public class Turma {
     public Professor getResponsavel() {
         return responsavel;
     }
+
+    public String getNomeDisciplina() {
+        return NomeDisciplina;
+    }
+
+    public String getCodigoTurma() {
+        return codigoTurma;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
 }

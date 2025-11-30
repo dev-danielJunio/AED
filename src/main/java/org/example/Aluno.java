@@ -56,7 +56,7 @@ public class Aluno extends Pessoa{
         }
     }
 
-    public Aluno(String nome, int CPF, int idade, boolean criveis, char sexo, int matricula) {
+    public Aluno(String nome, long CPF, int idade, boolean criveis, char sexo, int matricula) {
         super(nome, CPF, idade, criveis, sexo, matricula);
         this.HistoricoAtual = new ArrayList<>();
         this.HistoricoEscolar = new ArrayList<>();

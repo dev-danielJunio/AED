@@ -7,7 +7,7 @@ import java.util.Base64;
 
 public class Pessoa {
     private String nome;
-    private int CPF;
+    private long CPF;
     private int idade;
     private String sal;
     private String senhaHash;
@@ -15,7 +15,7 @@ public class Pessoa {
     private char sexo;
     private int matricula;
 
-    public Pessoa(String nome, int CPF, int idade, boolean criveis, char sexo, int matricula) {
+    public Pessoa(String nome, long CPF, int idade, boolean criveis, char sexo, int matricula) {
         this.nome = nome;
         this.CPF = CPF;
         this.idade = idade;
@@ -70,7 +70,7 @@ public class Pessoa {
         return matricula;
     }
 
-    public int getCPF() {
+    public long getCPF() {
         return CPF;
     }
 
