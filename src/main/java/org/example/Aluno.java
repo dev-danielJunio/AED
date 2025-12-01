@@ -14,7 +14,7 @@ public class Aluno extends Pessoa{
     private Curso curso;
 
     public void consultarBoleto() { // Emissão de boletos
-        System.out.printf("Consultando boletos não pagos");
+        System.out.printf("Consultando boletos não pagos\n");
 
         for (Boleto b : fatura) {
             if (!b.isSituacao()) {
