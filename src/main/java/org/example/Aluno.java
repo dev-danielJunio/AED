@@ -17,7 +17,7 @@ public class Aluno extends Pessoa{
         System.out.printf("Consultando boletos não pagos");
 
         for (Boleto b : fatura) {
-            if (b.isSituacao()) {
+            if (!b.isSituacao()) {
                 b.imprmir();
             }
         }
@@ -33,6 +33,7 @@ public class Aluno extends Pessoa{
     public void consultarHistorico() { // Histórico escolar
         System.out.printf("Consultando o histórico escolar\n");
         for (DisciplinaCursada b : HistoricoEscolar) {
+            System.out.printf("Código | Nome | Período | Média | Créditos | Situação\n");
             System.out.print(b.Historico());
         }
     }
@@ -93,7 +94,7 @@ public class Aluno extends Pessoa{
 
     public void gerarBoleto(double N, String data1, String data2) {
         Boleto boleto = new Boleto(N, data1, data2, this);
-        this.fatura.add(boleto);
+        fatura.add(boleto);
     }
 
     public void tirarBolsa() {
@@ -104,6 +105,15 @@ public class Aluno extends Pessoa{
         super(nome, CPF, idade, criveis, sexo, matricula);
         this.HistoricoAtual = new ArrayList<>();
         this.HistoricoEscolar = new ArrayList<>();
+        this.fatura = new ArrayList<>();
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
     }
 
     public Bolsa getBolsas() {

@@ -21,7 +21,7 @@ public class Boleto implements IImprimivel {
 
     @Override
     public void imprmir() {
-        System.out.printf("Aluno: %s\nMatricula: %d\nFatura: %.2f\n", pertecente.getMatricula());
+        System.out.printf("Aluno: %s\nMatricula: %d\nFatura: %.2f\n", pertecente.getNome(), pertecente.getMatricula(), fatura);
         System.out.printf("Data de emissão: %s\nData de vencimento: %s\nStatus: ", dataemissao, datavencimento);
         if (situacao) {
             System.out.printf("Foi paga\n");

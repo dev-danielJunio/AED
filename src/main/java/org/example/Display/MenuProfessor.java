@@ -14,6 +14,7 @@ public class MenuProfessor {
 
     public MenuProfessor(SistemaEscola sistema) {
         this.sistema = sistema;
+        this.cadastro = sistema.getCadastro();
     }
 
     public void loginProfessor() {
@@ -68,7 +69,10 @@ public class MenuProfessor {
                 case 4 -> LancarPlano(p);
                 case 5 -> finalizarTurma(p);
                 case 6 -> mudarSenha(p);
-                case 0 -> System.out.println("Saindo...");
+                case 0 -> {
+                    System.out.println("Saindo...");
+                    return;
+                }
                 default -> System.out.println("❌ Opção inválida!");
             }
         }

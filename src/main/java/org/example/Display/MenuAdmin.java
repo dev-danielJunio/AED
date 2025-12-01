@@ -313,7 +313,7 @@ public class MenuAdmin {
             Aluno aluno = sistema.getCadastro().buscarAluno(matricula);
 
             if (aluno == null) {
-                System.out.println("❌ Aluno não encontrado!");
+                System.out.println("❌ Aluno não encontrado!\n");
                 return;
             }
 
@@ -336,17 +336,33 @@ public class MenuAdmin {
 
             System.out.print("Sexo (M/F): ");
             char sexo = sc.nextLine().toUpperCase().charAt(0);
+            if (sexo != 'M' && sexo != 'F') {
+                System.out.printf("❌ Erro ao cadastrar aluno! Verifique os dados.\n");
+                return;
+            }
 
             System.out.print("Matrícula: ");
             int matricula = Integer.parseInt(sc.nextLine());
 
+            System.out.print("Curso: (1-CC, 2-SI, 3-ADS): ");
+            int curso = Integer.parseInt(sc.nextLine());
+            if (curso < 1 || curso > 3) {
+                System.out.printf("❌ Erro ao cadastrar aluno! Verifique os dados.\n");
+            }
+
             Aluno novo = admin.cadastrarAluno(nome, cpf, idade, sexo, matricula);
+            switch(curso) {
+                case 1 -> novo.setCurso(Curso.CC);
+                case 2 -> novo.setCurso(Curso.SI);
+                case 3 -> novo.setCurso(Curso.ADS);
+            }
             sistema.getCadastro().addAluno(novo);
 
-            System.out.println("✅ Aluno cadastrado com sucesso!");
+
+            System.out.println("✅ Aluno cadastrado com sucesso!\n");
 
         } catch (Exception e) {
-            System.out.println("❌ Erro ao cadastrar aluno! Verifique os dados.");
+            System.out.println("❌ Erro ao cadastrar aluno! Verifique os dados.\n");
         }
     }
 
@@ -372,10 +388,10 @@ public class MenuAdmin {
             Professor novo = admin.cadastrarProfessor(nome, cpf, idade, sexo, matricula);
             sistema.getCadastro().addProfessor(novo);
 
-            System.out.println("✅ Professor cadastrado com sucesso!");
+            System.out.println("✅ Professor cadastrado com sucesso!\n");
 
         } catch (Exception e) {
-            System.out.println("❌ Erro ao cadastrar professor! Verifique os dados.");
+            System.out.println("❌ Erro ao cadastrar professor! Verifique os dados.\n");
         }
     }
 
@@ -427,10 +443,10 @@ public class MenuAdmin {
 
             sistema.getCadastro().addTurma(t);
 
-            System.out.println("✅ Turma criada com sucesso!");
+            System.out.println("✅ Turma criada com sucesso!\n");
 
         } catch (Exception e) {
-            System.out.println("❌ Erro ao criar turma! Verifique os dados.");
+            System.out.println("❌ Erro ao criar turma! Verifique os dados.\n");
         }
     }
 
@@ -441,7 +457,7 @@ public class MenuAdmin {
 
             Aluno aluno = sistema.getCadastro().buscarAluno(matAluno);
             if (aluno == null) {
-                System.out.println("❌ Aluno não encontrado!");
+                System.out.println("❌ Aluno não encontrado!\n");
                 return;
             }
 
@@ -450,15 +466,16 @@ public class MenuAdmin {
 
             Turma turma = sistema.getCadastro().buscarTurma(codTurma);
             if (turma == null) {
-                System.out.println("❌ Turma não encontrada!");
+                System.out.println("❌ Turma não encontrada!\n");
                 return;
             }
 
             admin.matricularAlunoEmTurma(aluno, turma);
-            System.out.println("✅ Aluno matriculado com sucesso!");
+            aluno.setCreditos(+ 4);
+            System.out.println("✅ Aluno matriculado com sucesso!\n");
 
         } catch (Exception e) {
-            System.out.println("❌ Erro ao matricular aluno!");
+            System.out.println("❌ Erro ao matricular aluno!\n");
         }
     }
 

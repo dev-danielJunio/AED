@@ -52,8 +52,7 @@ public class MenuAluno {
             System.out.println("3 - Consultar Histórico Escolar");
             System.out.println("4 - Matricular em Disciplina");
             System.out.println("5 - Consultar Meus Horários");
-            System.out.println("6 - Buscar Disciplina (por código)");
-            System.out.println("7 - Mudar de senha");
+            System.out.println("6 - Mudar de senha");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
@@ -93,10 +92,6 @@ public class MenuAluno {
                     break;
 
                 case 6:
-                    buscarDisciplina(aluno);
-                    break;
-
-                case 7:
                     mudarSenha(aluno);
                     break;
 

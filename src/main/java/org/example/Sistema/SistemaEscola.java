@@ -41,7 +41,7 @@ public class SistemaEscola {
         Aluno aluno = new Aluno(
                 "Igor", 200, 19, true, 'M', 10
         );
-
+        aluno.gerarBoleto(2400, "Oi", "Teste");
         adm.definirNovaSenha("admin");
         cadastro.addAdmin(adm);
         cadastro.addProfessor(professor);
